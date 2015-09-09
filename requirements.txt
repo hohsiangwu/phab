@@ -1,0 +1,2 @@
+phabricator==0.4.0
+networkx==1.10
