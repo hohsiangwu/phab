@@ -3,7 +3,7 @@ from collections import Counter
 import networkx as nx
 
 def edges_from_diffs(diffs):
-  edges = [(diff.authorPHID, reviewer) for diff in diffs for reviewer in diff.reviewerPHIDs if 'USER' in reviewer]
+  edges = [(diff.authorPHID, reviewer) for diff in diffs for reviewer, _ in diff.accepted_by if 'USER' in reviewer]
   return [(source, target, weight) for (source, target), weight in Counter(edges).items()]
 
 class Graph(object):
