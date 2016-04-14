@@ -27,7 +27,7 @@ class Graph(object):
     return list(nx.k_clique_communities(self.DG.to_undirected(), k))
 
   def topk_betweenness_centrality(self, topk=50):
-    return sorted(nx.betweenness_centrality(self.DG).items(), key=lambda n: -x[1])[:topk]
+    return sorted(nx.betweenness_centrality(self.DG).items(), key=lambda n: -n[1])[:topk]
 
   def topk_authorities_hubs(self, topk=50):
     hubs, authorities = nx.hits(self.DG)
